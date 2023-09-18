@@ -60,7 +60,6 @@ body {
   &__upperBlock {
     position: relative;
     display: flex;
-    flex: 1 1 auto;
     justify-content: space-between;
     min-height: 4.375rem;
     align-items: center;
@@ -80,6 +79,8 @@ body {
 
   &__searchIcon {
     cursor: pointer;
+    margin-right: 0.9375rem;
+    margin-left: 1.625rem;
   }
 
   &__logo {
@@ -91,6 +92,8 @@ body {
 
   &__icons {
     display: flex;
+    margin-left: 0.9375rem;
+    margin-right: 1.75rem;
   }
 
   &__cartIcon {
@@ -129,9 +132,10 @@ body {
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
+    color: #726E8D;
     @include hover {
       &:hover {
-        color: #373544;
+        color: #000000;
       }
     }
   }
