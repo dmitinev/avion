@@ -1,0 +1,138 @@
+@import "~the-new-css-reset";
+@import "../css/fonts.scss";
+@import "../css/colors.scss";
+
+@mixin hover {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+// @mixin width_1440 {
+//   @media (width <= 90rem) {
+//     @content;
+//   }
+// }
+
+// @mixin width_1024 {
+//   @media (width <= 64rem) {
+//     @content;
+//   }
+// }
+
+// @mixin width_375 {
+//   @media (width <= 23.4375rem) {
+//     @content;
+//   }
+// }
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+[class*='__container'] {
+  max-width: 81.875rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin: 0 auto;
+}
+
+.page_wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'ClashDisplay-Regular' ,sans-serif;
+}
+
+.page {
+
+  &__header {
+  }
+}
+.header {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__upperBlock {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    min-height: 4.375rem;
+    align-items: center;
+    // border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.10);
+    &::after {
+      content: "";
+      display: inline-flex;
+      height: 1px;
+      width: 100vw;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  &__searchIcon {
+    cursor: pointer;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #22202E;
+  }
+
+  &__icons {
+    display: flex;
+  }
+
+  &__cartIcon {
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+
+  &__userIcon {
+    cursor: pointer;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4.375rem;
+  }
+}
+.navigation {
+
+  &__items {
+    flex: 0 1 42.1875rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    transition: color .4s;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    @include hover {
+      &:hover {
+        color: #373544;
+      }
+    }
+  }
+}
