@@ -221,7 +221,7 @@ body {
     align-self: end;
     justify-self: start;
     font-family: 'Satoshi-Regular', sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-style: normal; 
     line-height: 150%;  
   }
@@ -240,7 +240,7 @@ body {
   align-items: center;
   color: $darkPrimary;
   &__heading {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -268,17 +268,68 @@ body {
 
   &__header {
     margin-bottom: 0.5rem;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-style: normal;
     line-height: 140%; 
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
   }
 }
+
+.listings {
+  margin-top: 10.375rem;
+  color: $darkPrimary;
+
+  &__header {
+    margin-bottom: 2.0625rem;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  &__productsList {
+  }
+
+  &__linksBlock {
+  }
+}
+.productsList {
+
+  &__productItem {
+  }
+}
+.productItem {
+
+  &__image {
+  }
+
+  &__descriptionBlock {
+  }
+}
+.descriptionBlock {
+
+  &__header {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  &__price {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+.linksBlock {
+
+  &__link {
+  }
+}
+
 
 
