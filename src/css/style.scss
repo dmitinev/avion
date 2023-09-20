@@ -248,9 +248,11 @@ body {
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(14.6875rem, 16.875rem));
+    justify-content: center;
+    width: 100%;
     grid-column-gap: 3.625rem;
+    grid-row-gap: 2.25rem;
     margin-top: 3.1875rem;
   }
 
@@ -293,19 +295,29 @@ body {
   }
 
   &__productsList {
+    
   }
 
   &__linksBlock {
+    margin-top: 2.1875rem;
+    display: flex;
+    justify-content: center;
   }
 }
 .productsList {
-
+  display: grid;
+  justify-content: center;
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.1875rem, 19.0625rem));
   &__productItem {
   }
 }
 .productItem {
 
   &__image {
+    object-fit: cover;
+    margin-bottom: 1.5rem;
   }
 
   &__descriptionBlock {
@@ -317,6 +329,7 @@ body {
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
+    margin-bottom: 0.5rem;
   }
 
   &__price {
@@ -328,8 +341,46 @@ body {
 .linksBlock {
 
   &__link {
+    padding: 16px 32px;
+    background-color: #F9F9F9;
   }
 }
+
+.popularProducts {
+  margin-top: 7.5rem;
+  &__header {
+  }
+
+  &__productsList {
+    justify-content: center;
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "sofa sofa chair chair2";
+  }
+
+  &__linksBlock {
+  }
+}
+
+.productsList {
+
+  &__item {
+    grid-area: chair;
+    &:nth-child(2) {
+      grid-area: chair2;
+    }
+    &:first-child {
+      grid-area: sofa;
+    }
+  }
+
+}
+
+
 
 
 
