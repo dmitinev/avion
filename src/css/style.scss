@@ -8,11 +8,11 @@
   }
 }
 
-// @mixin width_1440 {
-//   @media (width <= 90rem) {
-//     @content;
-//   }
-// }
+@mixin width_903 {
+  @media (width <= 56.4375rem) {
+    @content;
+  }
+}
 
 // @mixin width_1024 {
 //   @media (width <= 64rem) {
@@ -157,6 +157,9 @@ body {
     background-color: $Primary;
     color: #fff;
     min-height: 36.5rem;
+    @include width_903 {
+      min-height: auto;
+    }
   }
 }
 .banner {
@@ -171,10 +174,17 @@ body {
       "upperBlockText"
       "downText";
     padding: 3.75rem 6.125rem 3.75rem 3.75rem;
+    @include width_903 {
+      padding: 40px 24px 24px 24px;
+      justify-content: center;
+    }
   }
 
   &__images {
     display: flex;
+    @include width_903 {
+      display: none;
+    }
   }
 
 }
@@ -184,11 +194,13 @@ body {
     grid-area: upperBlockText;
     max-width: 32.0625rem;
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 
     "textHeader"
     "textLink";
+    @include width_903 {
+      max-width: none;
+    }
   }
 
   &__header {
@@ -196,7 +208,11 @@ body {
     font-size: 2rem;
     font-style: normal;
     grid-area: textHeader;
-    line-height: 140%
+    line-height: 140%;
+    @include width_903 {
+      text-align: center;
+    }
+    
   }
 
   &__link {
@@ -209,6 +225,9 @@ body {
     justify-self: start;
     align-self: start;
     padding: 1rem 2rem;
+    @include width_903 {
+      margin: 0 auto;
+    }
     @include hover {
       &:hover {
         background-color: rgba(143, 142, 142, 0.369);
@@ -224,6 +243,10 @@ body {
     font-size: 1.125rem;
     font-style: normal; 
     line-height: 150%;  
+    @include width_903 {
+      align-self: center;
+      text-align: center;
+    }
   }
 }
 .images {
