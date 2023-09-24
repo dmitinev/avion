@@ -163,16 +163,11 @@ body {
   }
 }
 .banner {
+  
   &__container {
   }
 
   &__information {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: 
-      "upperBlockText"
-      "downText";
     padding: 3.75rem 6.125rem 3.75rem 3.75rem;
     @include width_903 {
       padding: 40px 24px 24px 24px;
@@ -182,6 +177,7 @@ body {
 
   &__images {
     display: flex;
+    max-width: 32.5rem;
     @include width_903 {
       display: none;
     }
@@ -192,12 +188,14 @@ body {
 
   &__heading {
     grid-area: upperBlockText;
-    max-width: 32.0625rem;
+    height: 100%;
+    max-width: 47.5rem;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 131px 50px auto;
     grid-template-areas: 
     "textHeader"
-    "textLink";
+    "textLink"
+    "downText";
     @include width_903 {
       max-width: none;
     }
@@ -246,13 +244,14 @@ body {
     @include width_903 {
       align-self: center;
       text-align: center;
+      padding-top: 5rem;
     }
   }
 }
 .images {
   &__picture {
     object-fit: cover;
-    height: 100%;
+    object-position: center;
   }
 }
 
@@ -364,7 +363,7 @@ body {
 .linksBlock {
 
   &__link {
-    padding: 16px 32px;
+    padding: 1rem 2rem;
     background-color: #F9F9F9;
   }
 }
@@ -402,6 +401,76 @@ body {
   }
 
 }
+
+.emailSign {
+  background-color: #F9F9F9;
+  margin-top: 3rem;
+  padding-top: 3.25rem;
+  padding-bottom: 4.0625rem;
+
+  &__signInform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding-top: 4.25rem;
+    padding-bottom: 3.375rem;
+  }
+}
+.signInform {
+
+  &__header {
+    font-size: 2.25rem;
+    font-style: normal;
+    margin-bottom: 1.125rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-style: normal;
+    font-family: 'Satoshi-Regular', sans-serif;
+    max-width: 29.375rem;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 4.5rem;
+  }
+
+  &__inputs {
+    display: flex;
+    min-height: 3.5rem;
+    max-width: 32.5625rem;
+    width: 100%;
+  }
+
+  &__inputLabel {
+    width: 100%;
+  }
+
+  &__textInput {
+    height: 100%;
+    width: 100%;
+    background-color: #F9F9F9;
+    padding-left: 2rem;
+    &::placeholder {
+      opacity: 0.2;
+    }
+  }
+
+  &__submitBtn {
+    max-width: 118px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Satoshi-Regular', sans-serif;
+    cursor: pointer;
+    background-color: $darkPrimary;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-style: normal;
+  }
+}
+
 
 
 
