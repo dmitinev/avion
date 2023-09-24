@@ -471,6 +471,44 @@ body {
   }
 }
 
+.featuresContant {
+  display: flex;
+  flex-direction: row;
+  max-height: 37.6875rem;
+  &__featuresDesc {
+    max-width: 50%;
+    padding: 4.5rem 6.25rem 3.375rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    object-fit: cover;
+    max-width: 50%;
+  }
+}
+.featuresDesc {
+
+
+  &__header {
+    font-size: 1.5rem;
+    font-style: normal; 
+    line-height: 140%;
+    margin-bottom: 1.5625rem;
+  }
+
+  &__text {
+    font-family: 'Satoshi-Regular', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+  }
+
+  &__links {
+    margin-top: auto;
+  }
+}
+
+
 
 
 
