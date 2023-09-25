@@ -14,11 +14,11 @@
   }
 }
 
-// @mixin width_1024 {
-//   @media (width <= 64rem) {
-//     @content;
-//   }
-// }
+@mixin width_750 {
+  @media (width <= 46.875rem) {
+    @content;
+  }
+}
 
 @mixin width_320 {
   @media (width <= 20rem) {
@@ -70,8 +70,14 @@ body {
     position: relative;
     min-height: 4.375rem;
     align-items: center;
+    @include width_750 {
+      grid-template-areas: "logo . searchIcon burger";
+    }
     &::after {
       content: "";
+      @include width_750 {
+        content: none;
+      }
       display: inline-flex;
       height: 1px;
       width: 100%;
@@ -89,15 +95,22 @@ body {
     margin-left: 1.625rem;
     grid-area: searchIcon;
     justify-self: start;
+    @include width_750 {
+      justify-self: end;
+    }
   }
 
   &__logo {
     font-size: 1.5rem;
+    z-index: 8;
     font-style: normal;
     font-weight: 400;
     color: #22202E;
     grid-area: logo;
     justify-self: center;
+    @include width_320 {
+      margin-left: 1.5rem;
+    }
   }
 
   &__icons {
@@ -106,6 +119,9 @@ body {
     margin-right: 1.75rem;
     grid-area: mediaIcons;
     justify-self: end;
+    @include width_750 {
+      display: none;
+    }
   }
 
   &__cartIcon {
@@ -119,14 +135,86 @@ body {
 
   &__burger {
     display: none;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 1.75rem;
+    margin-right: 1.625rem;
+    cursor: pointer;
+    z-index: 8;
+    @include width_750 {
+      display: block;
+    }
+    & span,
+    &::before,
+    &::after {
+      left: 0;
+      position: absolute;
+      height: 20%;
+      width: 100%;
+      transition: all .3s ease 0s;
+      background-color: $darkPrimary;
+      border-radius: 0.3125rem;
+    }
+    &::before,
+    &::after {
+      content: "";
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    & span {
+      top: 50%;
+      transform: scale(1) translate(0, -50%);
+    }
+    &--active {
+      &::before {
+        transform: rotate(-45deg) translateY(0.5625rem);
+      }
+      &::after {
+        transform: rotate(45deg) translateY(-0.5625rem);
+      }
+      & span {
+        display: none;
+      }
+    }
     grid-area: burger;
+    justify-self: end;
   }
 
   &__navigation {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 4.375rem;
+    transition: left .4s;
+    @include width_750 {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      align-items: center;
+      justify-content: center;
+      .navigation__items {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1.25rem;
+      }
+      .navigation__link {
+        font-size: 1.5rem;
+      }
+      &--active {
+        left: 0;
+      }
+    }
+
   }
 }
 .navigation {
@@ -158,6 +246,9 @@ body {
 
   &__baner {
     margin-top: 3.75rem;
+    @include width_750 {
+      margin-top: 1.875rem;
+    }
     display: flex;
     background-color: $Primary;
     color: #fff;
@@ -264,6 +355,9 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 3.75rem;
+  @include width_750 {
+    margin-top: 2.5rem;
+  }
   align-items: center;
   color: $darkPrimary;
   &__heading {
@@ -276,6 +370,9 @@ body {
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(14.6875rem, 16.875rem));
+    @include width_750 {
+      grid-template-columns: repeat(auto-fill, minmax(16.875rem, 21.25rem));
+    }
     justify-content: center;
     width: 100%;
     grid-column-gap: 3.625rem;
@@ -312,6 +409,9 @@ body {
 
 .listings {
   margin-top: 10.375rem;
+  @include width_750 {
+    margin-top: 5rem;
+  }
   color: $darkPrimary;
 
   &__header {
@@ -337,6 +437,11 @@ body {
   grid-column-gap: 1.25rem;
   grid-row-gap: 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(10.1875rem, 19.0625rem));
+  @include width_750 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0.9375rem;
+    grid-row-gap: 0.9375rem;
+  }
   &__productItem {
   }
 }
@@ -375,6 +480,9 @@ body {
 
 .popularProducts {
   margin-top: 7.5rem;
+  @include width_750 {
+    margin-top: 4.375rem;
+  }
   &__header {
   }
 
@@ -387,6 +495,12 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
     "sofa sofa chair chair2";
+    @include width_750 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+      "sofa sofa"
+      "chair chair2";
+    }
   }
 
   &__linksBlock {
@@ -412,6 +526,9 @@ body {
   margin-top: 3rem;
   padding-top: 3.25rem;
   padding-bottom: 4.0625rem;
+  @include width_750 {
+    padding: 0;
+  }
 
   &__signInform {
     width: 100%;
@@ -457,6 +574,7 @@ body {
     width: 100%;
     background-color: #F9F9F9;
     padding-left: 2rem;
+    padding-right: 1rem;
     &::placeholder {
       opacity: 0.2;
     }
@@ -479,22 +597,35 @@ body {
 .featuresContant {
   display: flex;
   flex-direction: row;
-  max-height: 603px;
+  max-height: 37.6875rem;
+  @include width_750 {
+    flex-direction: column;
+    max-height: none;
+    row-gap: 3.125rem;
+    max-height: none;
+  }
   &__featuresDesc {
     max-width: 50%;
     padding: 4.5rem 6.25rem 3.375rem 0;
     display: flex;
     flex-direction: column;
+    @include width_750 {
+      max-width: none;
+      padding: 1.875rem 0 0 0;
+    }
   }
 
   &__image {
     object-fit: cover;
     max-width: 50%;
+    @include width_750 {
+      max-width: none;
+    }
   }
 }
 .featuresDesc {
-
-
+  display: flex;
+  flex-direction: column;
   &__header {
     font-size: 1.5rem;
     font-style: normal; 
@@ -510,18 +641,32 @@ body {
 
   &__links {
     margin-top: auto;
+    display: flex;
+    @include width_750 {
+      margin-top: 1.875rem;
+    }
+  }
+
+  &__link {
+    @include width_320 {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
 .page_footer {
   padding-top: 3.625rem;
+  @include width_750 {
+
+  }
   background-color: $darkPrimary;
   color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
 
   &__container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &__menuSection {
@@ -556,6 +701,10 @@ body {
   &__upper {
     display: flex;
     margin-bottom: 3rem;
+    @include width_750 {
+      flex-direction: column;
+      row-gap: 2.5rem;
+    }
   }
 
   &__footerMenu {
@@ -637,6 +786,7 @@ body {
   &__inputField {
     flex: 1 1 auto;
     padding-left: 2rem;
+    padding-right: 1rem;
     background-color: rgba($color: #FFFFFF26, $alpha: 0.15);
     &::placeholder {
       font-family: 'Satoshi-Regular', sans-serif;
@@ -649,6 +799,9 @@ body {
     color: #2A254B;
     background-color: #FFFFFF;
     cursor: pointer;
+    @include width_903 {
+      padding: 1rem 1rem;
+    }
   }
 }
 .linksBlock {
