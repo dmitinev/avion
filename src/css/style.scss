@@ -50,11 +50,6 @@ body {
   font-family: 'ClashDisplay-Regular' ,sans-serif;
 }
 
-.page {
-
-  &__header {
-  }
-}
 .header {
 
   &__container {
@@ -79,7 +74,7 @@ body {
         content: none;
       }
       display: inline-flex;
-      height: 1px;
+      height: 0.0625rem;
       width: 100%;
       position: absolute;
       left: 50%;
@@ -225,9 +220,6 @@ body {
     justify-content: space-between;
   }
 
-  &__item {
-  }
-
   &__link {
     transition: color .4s;
     font-size: 1rem;
@@ -246,27 +238,27 @@ body {
 
   &__baner {
     margin-top: 3.75rem;
-    @include width_750 {
-      margin-top: 1.875rem;
-    }
     display: flex;
-    background-color: $Primary;
+    background-color: $darkPrimary;
     color: #fff;
     min-height: 36.5rem;
     @include width_903 {
       min-height: auto;
     }
+    @include width_750 {
+      margin-top: 1.875rem;
+    }
+    @include width_320 {
+      margin-top: 0;
+    }
   }
 }
 .banner {
-  
-  &__container {
-  }
 
   &__information {
     padding: 3.75rem 6.125rem 3.75rem 3.75rem;
     @include width_903 {
-      padding: 40px 24px 24px 24px;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
       justify-content: center;
     }
   }
@@ -287,13 +279,20 @@ body {
     height: 100%;
     max-width: 47.5rem;
     display: grid;
-    grid-template-rows: 131px 50px auto;
+    grid-template-rows: 8.1875rem 3.125rem auto;
     grid-template-areas: 
     "textHeader"
     "textLink"
     "downText";
     @include width_903 {
       max-width: none;
+    }
+    @include width_750 {
+      grid-template-rows: 8.1875rem auto 3.125rem;
+      grid-template-areas: 
+      "textHeader"
+      "downText"
+      "textLink";
     }
   }
 
@@ -306,7 +305,12 @@ body {
     @include width_903 {
       text-align: center;
     }
-    
+    @include width_750 {
+      text-align: left;
+    }
+    @include width_320 {
+      font-size: 1.5rem;
+    }
   }
 
   &__link {
@@ -321,6 +325,10 @@ body {
     padding: 1rem 2rem;
     @include width_903 {
       margin: 0 auto;
+    }
+    @include width_750 {
+      justify-self: stretch;
+      text-align: center;
     }
     @include hover {
       &:hover {
@@ -342,6 +350,16 @@ body {
       text-align: center;
       padding-top: 5rem;
     }
+    @include width_750 {
+      text-align: left;
+      align-self: center;
+      padding-top: 0;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+    }
+    @include width_320 {
+      font-size: 1rem;
+    }
   }
 }
 .images {
@@ -357,6 +375,9 @@ body {
   margin-top: 3.75rem;
   @include width_750 {
     margin-top: 2.5rem;
+  }
+  @include width_320 {
+    margin-top: 3rem;
   }
   align-items: center;
   color: $darkPrimary;
@@ -412,6 +433,9 @@ body {
   @include width_750 {
     margin-top: 5rem;
   }
+  @include width_320 {
+    margin-top: 5.875rem;
+  }
   color: $darkPrimary;
 
   &__header {
@@ -419,10 +443,9 @@ body {
     font-size: 2rem;
     font-style: normal;
     font-weight: 400;
-  }
-
-  &__productsList {
-    
+    @include width_320 {
+      font-size: 1.25rem;
+    }
   }
 
   &__linksBlock {
@@ -442,17 +465,12 @@ body {
     grid-column-gap: 0.9375rem;
     grid-row-gap: 0.9375rem;
   }
-  &__productItem {
-  }
 }
 .productItem {
 
   &__image {
     object-fit: cover;
     margin-bottom: 1.5rem;
-  }
-
-  &__descriptionBlock {
   }
 }
 .descriptionBlock {
@@ -483,8 +501,6 @@ body {
   @include width_750 {
     margin-top: 4.375rem;
   }
-  &__header {
-  }
 
   &__productsList {
     justify-content: center;
@@ -501,9 +517,6 @@ body {
       "sofa sofa"
       "chair chair2";
     }
-  }
-
-  &__linksBlock {
   }
 }
 
@@ -523,6 +536,9 @@ body {
 
 .emailSign {
   background-color: #F9F9F9;
+  @include width_750 {
+    background: none;
+  }
   margin-top: 3rem;
   padding-top: 3.25rem;
   padding-bottom: 4.0625rem;
@@ -546,6 +562,10 @@ body {
     font-size: 2.25rem;
     font-style: normal;
     margin-bottom: 1.125rem;
+    text-align: center;
+    @include width_320 {
+      font-size: 1rem;
+    }
   }
 
   &__text {
@@ -556,6 +576,9 @@ body {
     line-height: 150%;
     text-align: center;
     margin-bottom: 4.5rem;
+    @include width_320 {
+      font-size: 0.875rem;
+    }
   }
 
   &__inputs {
@@ -575,21 +598,28 @@ body {
     background-color: #F9F9F9;
     padding-left: 2rem;
     padding-right: 1rem;
+    @include width_320 {
+      padding-left: 1rem;
+      padding-right: 0.3rem;
+    }
     &::placeholder {
       opacity: 0.2;
     }
   }
 
   &__submitBtn {
-    max-width: 118px;
+    max-width: 7.375rem;
     display: flex;
     justify-content: center;
     width: 100%;
+    @include width_320 {
+      width: 60%;
+    }
     font-family: 'Satoshi-Regular', sans-serif;
     cursor: pointer;
     background-color: $darkPrimary;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
   }
 }
@@ -631,12 +661,18 @@ body {
     font-style: normal; 
     line-height: 140%;
     margin-bottom: 1.5625rem;
+    @include width_320 {
+      font-size: 1rem;
+    }
   }
 
   &__text {
     font-family: 'Satoshi-Regular', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
+    @include width_320 {
+      font-size: 0.875rem;
+    }
   }
 
   &__links {
@@ -657,9 +693,6 @@ body {
 
 .page_footer {
   padding-top: 3.625rem;
-  @include width_750 {
-
-  }
   background-color: $darkPrimary;
   color: #FFFFFF;
 
@@ -669,10 +702,6 @@ body {
     flex-direction: column;
   }
 
-  &__menuSection {
-
-  }
-
   &__menuSections {
     flex-wrap: wrap;
     display: flex;
@@ -680,6 +709,9 @@ body {
     justify-content: space-between;
     padding-right: 6.25rem;
     row-gap: 1.875rem;
+    @include width_750 {
+      padding-right: 0;
+    }
   }
 
   &__mailForm {
@@ -687,14 +719,25 @@ body {
     display: flex;
     flex-direction: column;
     padding-left: 0.625rem;
+    @include width_750 {
+      padding-left: 0;
+    }
   }
 
   &__copyright {
+    margin: 0;
   }
 
   &__socialsList {
     display: flex;
     justify-content: space-between;
+    @include width_750 {
+      margin-bottom: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    @include width_320 {
+      display: none;
+    }
   }
 }
 .menuSection {
@@ -719,16 +762,25 @@ body {
     align-items: center;
     position: relative;
     min-height: 4rem;
+    @include width_320 {
+      min-height: 2rem;
+    }
     &::before {
       content: "";
       display: inline-flex;
-      height: 1px;
+      height: 0.0625rem;
       width: 100%;
       position: absolute;
       left: 50%;
       transform: translate(-50%, 0);
       top: 0;
       background-color: #4E4D93;
+    }
+    @include width_750 {
+      flex-direction: column;
+      &::before {
+        top: -1.25rem;
+      }
     }
   }
 }
@@ -738,9 +790,6 @@ body {
     margin-bottom: 0.75rem;
     font-size: 1rem;
     font-style: normal;
-  }
-
-  &__menuList {
   }
 }
 .menuList {
@@ -774,13 +823,13 @@ body {
   &__footerForm {
     width: 100%;
     display: flex;
+    min-height: 3.5rem;
   }
 }
 .footerForm {
 
   &__label {
-    display: flex;
-    flex: 1 1 auto;
+    display: inline-flex;
   }
 
 
@@ -788,6 +837,10 @@ body {
     flex: 1 1 auto;
     padding-left: 2rem;
     padding-right: 1rem;
+    @include width_750 {
+      padding-left: 0.625rem;
+      padding-right: 0.5rem;
+    }
     background-color: rgba($color: #FFFFFF26, $alpha: 0.15);
     &::placeholder {
       font-family: 'Satoshi-Regular', sans-serif;
@@ -797,28 +850,28 @@ body {
   }
 
   &__submitBtn {
+    max-width: 7.375rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #2A254B;
     background-color: #FFFFFF;
+    padding: 0;
     cursor: pointer;
-    @include width_903 {
-      padding: 1rem 1rem;
+    @include width_320 {
+      min-width: none;
     }
   }
 }
-.linksBlock {
 
-  &__link {
-  }
-}
 .socialsList {
+
 
   &__item {
     &:not(:last-child) {
       margin-right: 1.5rem;
     }
-  }
-
-  &__link {
   }
 }
 
