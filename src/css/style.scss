@@ -608,9 +608,11 @@ body {
   }
 
   &__submitBtn {
+    all: unset;
     max-width: 7.375rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     @include width_320 {
       width: 60%;
